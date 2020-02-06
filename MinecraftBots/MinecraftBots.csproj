@@ -70,6 +70,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Bot\tBotsTask_a.cs" />
+    <Compile Include="Bot\tBotsTask_b.cs" />
     <Compile Include="ConsoleIO.cs" />
     <Compile Include="Content.cs" />
     <Compile Include="Helper.cs" />

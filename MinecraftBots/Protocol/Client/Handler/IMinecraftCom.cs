@@ -13,4 +13,12 @@ namespace MinecraftBots.Protocol.Client.Handler
         void OnKeepAlive();
         void OnChat();
     }
+
+    public interface MinecraftEvent
+    {
+        void OnGameJoin();
+        void OnConnectionLost(BotUtils.DisconnectReason type, string msg);
+        void OnKeepAlive();
+    }
+
 }

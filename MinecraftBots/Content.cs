@@ -32,8 +32,10 @@ namespace MinecraftBots
             {
                 SetServerIP();
                 Console.WriteLine("测试方案:");
-                Console.WriteLine("1:(代理)Proxy-Bots 并发测试.");
+                Console.WriteLine("1:(代理)Proxy-Bots 并发压测测试.");
+                Console.WriteLine("2:(代理)Proxy-Bots 队列算法测试.(不支持Motd)");
                 int Method = int.Parse(Console.ReadLine());
+                ArrayList chat2 = new ArrayList();
                 List<string> chat = new List<string>();
                 ServerInfo info = new ServerInfo(ServerIP, ServerPort);
                 if (info.StartGetServerInfo())
@@ -55,6 +57,19 @@ namespace MinecraftBots
                                 s_a = new Bot.tBotsTask_a(info, Setting.name, Setting.threads, chat, Setting.protocol);
                             }
                             s_a.newTask(Setting.cooldown);
+                            break;
+                        case 2:
+                            chat.AddRange(File.ReadAllText(Setting.chatlist, Encoding.UTF8).Split('\n'));
+                            Bot.tBotsTask_b s_b;
+                            if (Setting.protocol == 0)
+                            {
+                                s_b = new Bot.tBotsTask_b(info, Setting.name, Setting.threads, chat2, protocol);
+                            }
+                            else
+                            {
+                                s_b = new Bot.tBotsTask_b(info, Setting.name, Setting.threads, chat2, Setting.protocol);
+                            }
+                            s_b.newTask(Setting.cooldown);
                             break;
                         default:
                             Console.WriteLine("未提供相应方案，请重新选择");

@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading;
 using System.Net.Sockets;
 using MinecraftBots.Protocol.Server.Forge;
+using MinecraftBots.Bot;
 
 namespace MinecraftBots.Protocol.Client.Handler
 {
@@ -35,6 +36,9 @@ namespace MinecraftBots.Protocol.Client.Handler
         private int autocomplete_transaction_id = 0;
 
         Thread netRead;
+        private TcpClient tcp;
+        private tBotsTask_b.MinecraftBot minecraftBot;
+
         public MinecraftProtocol(TcpClient tcp, int protocolver,IMinecraftCom Handler,ForgeInfo forge)
         {
             client = tcp;
@@ -42,6 +46,15 @@ namespace MinecraftBots.Protocol.Client.Handler
             forgeInfo = forge;
             handler = Handler;
         }
+
+        public MinecraftProtocol(TcpClient tcp, int protocolVersion, tBotsTask_b.MinecraftBot minecraftBot, ForgeInfo forgeInfo)
+        {
+            this.tcp = tcp;
+            protocolversion = protocolVersion;
+            this.minecraftBot = minecraftBot;
+            this.forgeInfo = forgeInfo;
+        }
+
         private void Receive(byte[] buffer, int start, int offset, SocketFlags f)
         {
             int read = 0;
