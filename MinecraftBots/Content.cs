@@ -20,7 +20,7 @@ namespace MinecraftBots
             Console.WriteLine("By:Lialy,WYH2004");
             Console.WriteLine("软件已开源;照成影响作者及开发成员不承担任何责任.");
             Console.WriteLine("原项目地址(DEV)：https://github.com/MLinksme/ProxyStressTest");
-            Console.WriteLine("新项目地址(DEV)：https://github.com/VIPWYH2004/ProxyStressTest_Pro-master");
+            Console.WriteLine("新项目地址(DEV)：https://github.com/VIPWYH2004/ProxyStressTest-Pro");
             Console.WriteLine("////////////////////////////////////////////////////");
             Console.WriteLine("正在初始化你的配置.");
             ConsoleIO.StartPrintMsg();
