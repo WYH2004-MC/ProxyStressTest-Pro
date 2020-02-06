@@ -1,4 +1,4 @@
-# ProxyStressTest_Pro
+# ProxyStressTest-Pro
 	原项目由Lialy制作，本项目是有原项目修改而成
 	原项目地址:https://github.com/MLinksme/ProxyStressTest
 
